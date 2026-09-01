@@ -63,6 +63,12 @@ fi
 if [[ -d "${ROOT}/assets" ]]; then
   EXTRA_PROJECT+=(--project-dir assets)
 fi
+# Git does not preserve an empty launcher_assets directory. Stage it only
+# when the clean source contains a real package asset.
+if [[ -d "${ROOT}/launcher_assets" ]] && \
+   find "${ROOT}/launcher_assets" -type f -print -quit | grep -q .; then
+  EXTRA_PROJECT+=(--project-dir launcher_assets)
+fi
 # Generated symbol headers. Game-owned C in src/ includes these by relative
 # path ("../psx_symbols.h"), so they are compile inputs of the shipped tree even
 # though nothing in CMakeLists.txt names them.
@@ -90,5 +96,4 @@ exec bash "${PACKAGER}" \
   --project-file codegen_setup.h \
   --project-file README.md \
   --project-dir seeds \
-  --project-dir launcher_assets \
   "${EXTRA_PROJECT[@]}"

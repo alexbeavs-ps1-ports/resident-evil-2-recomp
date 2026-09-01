@@ -198,6 +198,10 @@ jobs:
         shell: bash
         run: bash psxrecomp/tools/ci/check_boot_exe.sh .
 
+      - name: Check setup executable name
+        shell: bash
+        run: python3 tests/test_setup_exe_name.py
+
       - name: Setup host mode (no game C / BIOS backends in CI)
         shell: bash
         run: bash psxrecomp/tools/ci/clear_generated.sh

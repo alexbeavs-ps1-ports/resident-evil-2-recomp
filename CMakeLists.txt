@@ -29,9 +29,9 @@ psxrecomp_add_game_runtime(psx-runtime
     # NETPLAY_LOBBY_URL "ws://netplay.retcomm.net:8765"
     ENABLE_SETUP_WIZARD
     WINDOW_TITLE "Resident Evil 2  Recompiled"
+    EXE_NAME "Resident_Evil_2__Recompiled"
     DEFAULT_GAME_CONFIG_PATH "game.toml"
     MAX_PLAYERS 1
-    # LAUNCHER_BOXART "${CMAKE_CURRENT_SOURCE_DIR}/launcher_assets/img/boxart.tga"
     APP_ICON "${CMAKE_CURRENT_SOURCE_DIR}/assets/psxrecomp.ico"
     GEN_MARKER "generated/SLUS_007.48_dispatch.c"
     GEN_FULL_GLOB "generated/SLUS_007.48_full_*.c"
