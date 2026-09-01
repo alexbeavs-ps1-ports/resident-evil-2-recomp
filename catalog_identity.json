@@ -1,0 +1,46 @@
+{
+  "format_version": 1,
+  "game": {
+    "name": "Resident Evil 2",
+    "id": "SLUS-00748",
+    "boot_exe": "SLUS_007.48"
+  },
+  "marketing": {
+    "description": "",
+    "publisher": "Capcom",
+    "year": "1998",
+    "region": "USA",
+    "players": 1
+  },
+  "rom_identity": {
+    "cue_name": "Resident Evil 2 - Dual Shock [Leon Disc] [U] [SLUS-00748].cue",
+    "bin_name": "Resident Evil 2 - Dual Shock [Leon Disc] [U] [SLUS-00748].bin",
+    "track_counts": [
+      2
+    ],
+    "require_cue": true,
+    "data_track": {
+      "size": 706004544,
+      "md5": "818490c296dd00575ebe43152cb854c0",
+      "sha1": "fe4ff71b6ce12014a8846195b33ab367f2467944",
+      "crc32": "43c95957"
+    },
+    "disc_fp": "fe630b0ff03361ab91d9cdf99ba41be195b00145fd54a7c61c4858b987183610"
+  },
+  "exe": {
+    "load_address": "0x80010000",
+    "entry_pc": "0x80078408",
+    "text_size": "0x000F0800",
+    "stack_base": "0x801FFFF0"
+  },
+  "seeds": {
+    "count": 987,
+    "source": "boot_exe_jal"
+  },
+  "warnings": [],
+  "notes": [
+    "entry_pc/load_address/text_size/stack_base taken from PS-X EXE header.",
+    "seeds are first-pass boot-EXE JAL targets (+ entry); expect to grow as overlays / runtime paths are discovered.",
+    "required_disc_fp is psxrecomp-toc-v1 (matches runtime DiscIdentity)."
+  ]
+}

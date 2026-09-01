@@ -1,0 +1,35 @@
+[project]
+title = "Resident Evil 2"
+slug = "resident-evil-2-recomp"
+region = "USA NTSC-U Dual Shock"
+track = "stable recompilation setup host"
+program_branch = "main"
+program_label = "Leon"
+intended_audience = "private manual-test preparation"
+commercial_use_possible = false
+
+[retail_identity]
+disc_count = 2
+serials = ["SLUS-00748", "SLUS-00756"]
+boot_executables = ["SLUS_007.48", "SLUS_007.56"]
+boot_exe_sha256 = ["e576348f64d015ecff6e1ce875a8924ee252ba7f3f9478b0917cbbdeb97db441", "1664e7c634f8cfd03e421f10a6d7e8e8e9fa9bc7982f7c649cc86d28a983fbee"]
+load_addresses = ["0x80010000", "0x80010000"]
+entry_points = ["0x80078408", "0x800783C0"]
+program_model = "two distinct programs; qualify on separate branches"
+
+[framework]
+repository = "https://github.com/Alexbeav/psxrecomp.git"
+branch = "codex/bench-upgrade-v2"
+commit = "8b4e090059602de76337c109ec6dd3a95c5d6c83"
+recomp_ui_commit = "4eda65430a431e5685ae0c515ebcd912c7843bff"
+license = "PolyForm Noncommercial 1.0.0"
+
+[preparation]
+state = "source_only_private_candidate_leon"
+release_version = "unassigned"
+publication = "not_authorized"
+retcomm_submission = "not_authorized"
+
+[limits]
+maximum_local_generated_gib = 20
+maximum_single_trace_gib = 8
