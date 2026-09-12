@@ -8,7 +8,7 @@ point `0x80078408` and SHA-256
 `E576348F64D015ECFF6E1CE875A8924EE252BA7F3F9478B0917CBBDEB97DB441`.
 
 The Claire disc uses a different program. It is qualified independently on
-branch `program/claire`. The stable framework does not combine these programs
+the immutable `program/claire` tag. The stable framework does not combine these programs
 into one setup host. This source tree contains no retail input or private path.
 
 ## Known boundary

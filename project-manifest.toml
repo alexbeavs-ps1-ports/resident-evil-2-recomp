@@ -15,7 +15,7 @@ boot_executables = ["SLUS_007.48", "SLUS_007.56"]
 boot_exe_sha256 = ["e576348f64d015ecff6e1ce875a8924ee252ba7f3f9478b0917cbbdeb97db441", "1664e7c634f8cfd03e421f10a6d7e8e8e9fa9bc7982f7c649cc86d28a983fbee"]
 load_addresses = ["0x80010000", "0x80010000"]
 entry_points = ["0x80078408", "0x800783C0"]
-program_model = "two distinct programs; qualify on separate branches"
+program_model = "two distinct programs; qualify separately from main and the program/claire tag"
 
 [framework]
 repository = "https://github.com/Alexbeav/psxrecomp.git"

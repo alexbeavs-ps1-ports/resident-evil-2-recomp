@@ -96,3 +96,11 @@ in release CI.
   <a href="https://discord.gg/Ad9BwSzctP"><img src=".github/raid-discord.png" alt="Join the Retro AI Development (R.A.I.D.) Discord" width="200"></a>
 </p>
 <!-- /retcomm-readme-raid -->
+
+## Development history
+
+Older source and separate candidates are preserved as fixed tags. See [the archive and recovery instructions](docs/BRANCH_ARCHIVE.md).
+
+## About this project
+
+This hobby project uses substantial AI assistance. Source checks and recorded tests determine which changes are accepted. Game acceptance remains limited to the evidence recorded for each program.
