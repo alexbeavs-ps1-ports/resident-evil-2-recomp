@@ -20,6 +20,11 @@ export GITHUB_ENV="${PWD}/.ci-env" GITHUB_OUTPUT="${PWD}/.ci-output"
 load_env() { if [[ -s "${GITHUB_ENV}" ]]; then set -a; . "${GITHUB_ENV}"; set +a; fi; }
 step() { echo; echo "=== $*"; }
 
+# Build parallelism: BUILD_JOBS from the pipeline, else all cores. athena sets 6: it has
+# 14 GB and hung from a global OOM under clang at -j18 (PLAT-45, 2026-09-17).
+JOBS="${BUILD_JOBS:-$(nproc 2>/dev/null || echo 4)}"
+export CMAKE_BUILD_PARALLEL_LEVEL="${JOBS}"
+
 case "$(uname -s)" in MINGW*|MSYS*) OS=windows ;; Linux) OS=linux ;; *) echo "unsupported host $(uname -s)"; exit 1 ;; esac
 
 step "Pin VERSION (${RELEASE_VERSION})"
@@ -65,7 +70,7 @@ if [[ "${OS}" == windows ]]; then
 fi
 
 step "Build recompiler tools (emitters)"
-bash psxrecomp/tools/ci/build_emitters.sh --framework psxrecomp --build-dir build-recompiler
+bash psxrecomp/tools/ci/build_emitters.sh --framework psxrecomp --build-dir build-recompiler --jobs "${JOBS}"
 
 step "Verify emitters present"
 count="$(find build-recompiler -type f \( -name 'psxrecomp-game*' -o -name 'psxrecomp-bios*' \) | wc -l | tr -d ' ')"
@@ -87,7 +92,6 @@ command -v glslc >/dev/null 2>&1 && EXTRA+=("-DGLSLC_EXE=$(command -v glslc)")
 if [[ -n "${PSX_SDL3_SOURCE_DIR:-}" && -f "${PSX_SDL3_SOURCE_DIR}/CMakeLists.txt" ]]; then
   EXTRA+=("-DFETCHCONTENT_SOURCE_DIR_SDL3=${PSX_SDL3_SOURCE_DIR}")
 fi
-JOBS="$(nproc 2>/dev/null || echo 4)"
 cmake -S . -B build-ci -G Ninja \
   -DCMAKE_BUILD_TYPE=Release \
   -DPSXRECOMP_FORCE_SETUP_HOST=ON \

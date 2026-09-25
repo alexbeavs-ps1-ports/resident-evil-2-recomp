@@ -24,6 +24,8 @@ steps:
     image: docker.io/library/ubuntu:24.04
     environment:
       DEBIAN_FRONTEND: noninteractive
+      # athena: 14 GB RAM; keep clang parallelism low (PLAT-45). Raise with measured RSS.
+      BUILD_JOBS: "6"
     commands:
       - apt-get update -qq
       - >-
