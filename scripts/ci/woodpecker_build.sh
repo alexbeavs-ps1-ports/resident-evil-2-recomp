@@ -28,11 +28,17 @@ printf '%s\n' "${RELEASE_VERSION}" >VERSION
 step "Record framework revisions"
 bash psxrecomp/tools/ci/record_pins.sh
 
-step "Lint boot-EXE name consistency"
-bash psxrecomp/tools/ci/check_boot_exe.sh .
+# Older templates (the wave2 repos, psxrecomp afe9ab2) predate these two checks;
+# the GitHub workflows of those repos do not run them either.
+if [[ -f psxrecomp/tools/ci/check_boot_exe.sh ]]; then
+  step "Lint boot-EXE name consistency"
+  bash psxrecomp/tools/ci/check_boot_exe.sh .
+fi
 
-step "Check setup executable name"
-python3 tests/test_setup_exe_name.py
+if [[ -f tests/test_setup_exe_name.py ]]; then
+  step "Check setup executable name"
+  python3 tests/test_setup_exe_name.py
+fi
 
 step "Setup host mode (no game C / BIOS backends in CI)"
 bash psxrecomp/tools/ci/clear_generated.sh

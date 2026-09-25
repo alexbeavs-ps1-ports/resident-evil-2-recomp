@@ -13,7 +13,9 @@ labels:
 
 clone:
   git:
-    image: plugin-git
+    # Full trusted name: Woodpecker gives clone credentials only to trusted clone images.
+    # The local backend runs plugin-git.exe from PATH for this step.
+    image: docker.io/woodpeckerci/plugin-git:2.10.1
     settings:
       recursive: true
       partial: false
