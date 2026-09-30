@@ -5,7 +5,7 @@
 # Usage:
 #   scripts/package_setup_release.sh <build-dir> <artifact-tag> [recompiler-build-dir]
 #
-# Writes: dist/residentevil2-leon-<VERSION>-<artifact-tag>.zip
+# Writes: dist/resident-evil-2-<VERSION>-<artifact-tag>.zip
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -63,12 +63,6 @@ fi
 if [[ -d "${ROOT}/assets" ]]; then
   EXTRA_PROJECT+=(--project-dir assets)
 fi
-# Git does not preserve an empty launcher_assets directory. Stage it only
-# when the clean source contains a real package asset.
-if [[ -d "${ROOT}/launcher_assets" ]] && \
-   find "${ROOT}/launcher_assets" -type f -print -quit | grep -q .; then
-  EXTRA_PROJECT+=(--project-dir launcher_assets)
-fi
 # Generated symbol headers. Game-owned C in src/ includes these by relative
 # path ("../psx_symbols.h"), so they are compile inputs of the shipped tree even
 # though nothing in CMakeLists.txt names them.
@@ -83,12 +77,15 @@ exec bash "${PACKAGER}" \
   --root "${ROOT}" \
   --build-dir "${BUILD_DIR}" \
   --artifact "${ARTIFACT_TAG}" \
-  --zip-prefix residentevil2-leon \
-  --exe-name Resident_Evil_2__Recompiled \
-  --display-name "Resident Evil 2  Recompiled" \
+  --zip-prefix resident-evil-2 \
+  --exe-name resident_evil_2 \
+  --display-name "Resident Evil 2 (USA Dual Shock Leon)" \
   --recompiler-build "${RECOMPILER_BUILD}" \
   --version-env RELEASE_VERSION \
-  --disc-hint "your legally owned Resident Evil 2 disc" \
+  --disc-hint "Resident Evil 2 (USA Dual Shock Leon) owned disc" \
+  --project-file project-manifest.toml \
+  --project-file disc_set.json \
+  --project-dir identity \
   --project-file CMakeLists.txt \
   --project-file game.toml \
   --project-file VERSION \
@@ -96,4 +93,5 @@ exec bash "${PACKAGER}" \
   --project-file codegen_setup.h \
   --project-file README.md \
   --project-dir seeds \
+  --project-dir launcher_assets \
   "${EXTRA_PROJECT[@]}"

@@ -6,17 +6,17 @@
 #include "psxrecomp_codegen_host.h"
 
 static const PsxrecompCodegenHostConfig kCodegenConfig = {
-    .display_name = "Resident Evil 2",
-    .project_root_env = "RESIDENT_EVIL_2_RECOMP_PROJECT_ROOT",
-    .build_dir_env = "RESIDENT_EVIL_2_RECOMP_BUILD_DIR",
-    .force_setup_env = "RESIDENT_EVIL_2_RECOMP_FORCE_SETUP",
+    .display_name = "Resident Evil 2 (USA Dual Shock Leon)",
+    .project_root_env = "RESIDENT_EVIL_2_PROJECT_ROOT",
+    .build_dir_env = "RESIDENT_EVIL_2_BUILD_DIR",
+    .force_setup_env = "RESIDENT_EVIL_2_FORCE_SETUP",
     .psxrecomp_cli_relpath = "psxrecomp/psxrecomp_cli.py",
     .seed_cfg_relpath = "game.toml",
     .game_toml_relpath = "game.toml",
     .gen_marker_relpath = "generated/SLUS_007.48_dispatch.c",
     .build_dir_name = "build-release",
     .cmake_target = "psx-runtime",
-    .exe_basename = "Resident_Evil_2__Recompiled",
+    .exe_basename = "resident_evil_2",
     .prepare_note =
         "Uses your legal disc with the local psxrecomp SDK to generate "
         "BIOS + game C, then cmake --build. The product lives under "

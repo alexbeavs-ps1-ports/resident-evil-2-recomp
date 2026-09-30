@@ -9,30 +9,39 @@ if(NOT EXISTS "${PSXRECOMP_ROOT}/runtime/runtime.cmake")
         "If psxrecomp/ is not a submodule, set -DPSXRECOMP_ROOT=<path-to-psxrecomp>.")
 endif()
 
-project(Resident_Evil_2_Recomp LANGUAGES C CXX)
+project(resident_evil_2 LANGUAGES C CXX)
 
 # --- Opt-in product surfaces (OFF by default in the framework) -------------
 # Scaffold prompts / flags fill these. Without recomp-ui, PSX_RECOMP_UI is OFF.
 # Setup-host CI requires WIZARD_CMAKE_BLOCK / ENABLE_SETUP_WIZARD (FORCE_SETUP_HOST
 # alone does not open first-run / Generate & rebuild).
-# recomp-ui submodule present (PSX_RECOMP_UI defaults ON).
-# Full netplay UI -- enable after adding recomp-ui + testing:
-# if(EXISTS "${PSXRECOMP_ROOT}/lib/recomp-net/CMakeLists.txt")
-#     set(PSX_NETPLAY ON CACHE BOOL "..." FORCE)
-# endif()
-set(PSX_SETUP_WIZARD ON CACHE BOOL
-    "Advertise first-run setup wizard + Generate & rebuild in recomp-ui" FORCE)
+set(PSX_RECOMP_UI ON CACHE BOOL "Use recomp-ui" FORCE)
+set(PSX_NETPLAY OFF CACHE BOOL "Netplay is not qualified" FORCE)
+set(PSX_SETUP_WIZARD ON CACHE BOOL "Enable owned-input setup" FORCE)
+set(PSXRECOMP_BIOS_STEMS "SCPH1001" CACHE STRING "Bound retail BIOS" FORCE)
 include("${PSXRECOMP_ROOT}/runtime/runtime.cmake")
 
+# This project's own mod catalog. The FRAMEWORK stages it -- together with its
+# builtin psx.* packages -- into <exe-dir>/mods/bundled, and refuses to
+# configure if a catalog exists here but is not declared. Never copy it by
+# hand: five titles did, and framework 4cc04be3's rename of the staged
+# directory broke all five silently (bead beads-eio.3.101).
+set(PSX_PRELOADED_MODS "${CMAKE_CURRENT_SOURCE_DIR}/mods/preloaded")
+if(NOT IS_DIRECTORY "${PSX_PRELOADED_MODS}")
+    set(PSX_PRELOADED_MODS "NONE")
+endif()
+
 psxrecomp_add_game_runtime(psx-runtime
-    # ENABLE_NETPLAY_IF_PRESENT
-    # NETPLAY_LOBBY_URL "ws://netplay.retcomm.net:8765"
+    PRELOADED_MODS_DIR "${PSX_PRELOADED_MODS}"
+
+
     ENABLE_SETUP_WIZARD
-    WINDOW_TITLE "Resident Evil 2  Recompiled"
-    EXE_NAME "Resident_Evil_2__Recompiled"
+    EXE_NAME "resident_evil_2"
+    WINDOW_TITLE "Resident Evil 2 (USA Dual Shock Leon)"
     DEFAULT_GAME_CONFIG_PATH "game.toml"
     MAX_PLAYERS 1
-    APP_ICON "${CMAKE_CURRENT_SOURCE_DIR}/assets/psxrecomp.ico"
+
+
     GEN_MARKER "generated/SLUS_007.48_dispatch.c"
     GEN_FULL_GLOB "generated/SLUS_007.48_full_*.c"
     CODEGEN_SETUP_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/codegen_setup.c"

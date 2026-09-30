@@ -1,35 +1,27 @@
 [project]
-title = "Resident Evil 2"
-slug = "resident-evil-2-recomp"
-region = "USA NTSC-U Dual Shock"
-track = "stable recompilation setup host"
-program_branch = "main"
-program_label = "Leon"
-intended_audience = "private manual-test preparation"
-commercial_use_possible = false
+title = "Resident Evil 2 (USA Dual Shock Leon)"
+region = "USA"
+track = "recompilation"
+status = "source_prepared_unqualified"
 
 [retail_identity]
-disc_count = 2
-serials = ["SLUS-00748", "SLUS-00756"]
-boot_executables = ["SLUS_007.48", "SLUS_007.56"]
-boot_exe_sha256 = ["e576348f64d015ecff6e1ce875a8924ee252ba7f3f9478b0917cbbdeb97db441", "1664e7c634f8cfd03e421f10a6d7e8e8e9fa9bc7982f7c649cc86d28a983fbee"]
-load_addresses = ["0x80010000", "0x80010000"]
-entry_points = ["0x80078408", "0x800783C0"]
-program_model = "two distinct programs; qualify separately from main and the program/claire tag"
+disc_count = 1
+serials = ["SLUS-00748"]
+executable_paths = ["SLUS_007.48"]
+executable_sha256 = "e576348f64d015ecff6e1ce875a8924ee252ba7f3f9478b0917cbbdeb97db441"
+load_address = "0x80010000"
+entry_point = "0x80078408"
+
+[bios]
+profile = "SCPH1001"
+sha256 = "71af94d1e47a68c11e8fdb9f8368040601514a42a5a399cda48c7d3bff1e99d3"
 
 [framework]
-repository = "https://github.com/Alexbeav/psxrecomp.git"
-branch = "codex/bench-upgrade-v2"
-commit = "8b4e090059602de76337c109ec6dd3a95c5d6c83"
-recomp_ui_commit = "4eda65430a431e5685ae0c515ebcd912c7843bff"
-license = "PolyForm Noncommercial 1.0.0"
+name = "psxrecomp"
+qualification = "pending T168 and shared canaries"
+template_commit = "77fc84d18cd341ba0c0feb68a63f0904f8c467f0"
 
-[preparation]
-state = "source_only_private_candidate_leon"
-release_version = "unassigned"
-publication = "not_authorized"
-retcomm_submission = "not_authorized"
-
-[limits]
-maximum_local_generated_gib = 20
-maximum_single_trace_gib = 8
+[release]
+target_version = "v0.4.0"
+private_only = true
+profile_status = "CI training pending"
