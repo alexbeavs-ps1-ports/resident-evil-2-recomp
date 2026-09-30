@@ -13,17 +13,17 @@
     "players": 1
   },
   "rom_identity": {
-    "cue_name": "Resident Evil 2 - Dual Shock [Leon Disc] [U] [SLUS-00748].cue",
-    "bin_name": "Resident Evil 2 - Dual Shock [Leon Disc] [U] [SLUS-00748].bin",
+    "cue_name": "Resident Evil 2 - Dual Shock Ver. (USA) (Disc 1).cue",
+    "bin_name": "Resident Evil 2 - Dual Shock Ver. (USA) (Disc 1) (Track 1).bin",
     "track_counts": [
       2
     ],
     "require_cue": true,
     "data_track": {
-      "size": 706004544,
-      "md5": "818490c296dd00575ebe43152cb854c0",
-      "sha1": "fe4ff71b6ce12014a8846195b33ab367f2467944",
-      "crc32": "43c95957"
+      "size": 668960544,
+      "md5": "0ca749ec7bc1604136718ca16fa55319",
+      "sha1": "62f53cd994d1e77dd8d7a67585623b03efb07da7",
+      "crc32": "6d23a781"
     },
     "disc_fp": "fe630b0ff03361ab91d9cdf99ba41be195b00145fd54a7c61c4858b987183610"
   },
