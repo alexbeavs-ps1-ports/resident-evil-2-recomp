@@ -108,3 +108,7 @@ Older source and separate candidates are preserved as fixed tags. See [the archi
 ## About this project
 
 This hobby project uses substantial AI assistance. Source checks and recorded tests determine which changes are accepted. Game acceptance remains limited to the evidence recorded for each program.
+
+<!-- framework-pin -->
+**Framework:** `psxrecomp` and `recomp-ui` are submodules pinned to test pin F (psxrecomp `a3e5fd892`, recomp-ui `8cf5b08`). Re-point both to pin G at release (PS1B-275). CI: Woodpecker, manual runs (`.woodpecker/`).
+<!-- /framework-pin -->
