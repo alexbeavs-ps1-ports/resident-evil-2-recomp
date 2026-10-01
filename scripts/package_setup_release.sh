@@ -83,7 +83,7 @@ exec bash "${PACKAGER}" \
   --build-dir "${BUILD_DIR}" \
   --artifact "${ARTIFACT_TAG}" \
   --zip-prefix resident-evil-2 \
-  --exe-name resident_evil_2 \
+  --exe-name Resident_Evil_2_Leon \
   --display-name "Resident Evil 2 (USA Dual Shock Leon)" \
   --recompiler-build "${RECOMPILER_BUILD}" \
   --version-env RELEASE_VERSION \

@@ -38,7 +38,7 @@ psxrecomp_add_game_runtime(psx-runtime
 
 
     ENABLE_SETUP_WIZARD
-    EXE_NAME "resident_evil_2"
+    EXE_NAME "Resident_Evil_2_Leon"
     WINDOW_TITLE "Resident Evil 2 (USA Dual Shock Leon)"
     DEFAULT_GAME_CONFIG_PATH "game.toml"
     MAX_PLAYERS 1

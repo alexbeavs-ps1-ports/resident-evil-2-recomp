@@ -11,6 +11,16 @@ executable_paths = ["SLUS_007.48"]
 executable_sha256 = "e576348f64d015ecff6e1ce875a8924ee252ba7f3f9478b0917cbbdeb97db441"
 load_address = "0x80010000"
 entry_point = "0x80078408"
+program_model = "independent-program"
+
+[retail_identity.set]
+name = "resident-evil-2-dual-shock-usa"
+title = "Resident Evil 2"
+serials = ["SLUS-00748", "SLUS-00756"]
+programs = ["leon", "claire"]
+program = "leon"
+exe_name = "Resident_Evil_2_Leon"
+shortcut = "Resident Evil 2 (Leon)"
 
 [bios]
 required = true
