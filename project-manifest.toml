@@ -20,7 +20,7 @@ serials = ["SLUS-00748", "SLUS-00756"]
 programs = ["leon", "claire"]
 program = "leon"
 exe_name = "Resident_Evil_2_Leon"
-shortcut = "Resident Evil 2 (Leon)"
+shortcut = "Resident Evil 2 - Leon"
 
 [bios]
 required = true
