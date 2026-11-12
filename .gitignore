@@ -81,3 +81,5 @@ starvation_dump.jsonl
 /*.png
 !/catalog_identity.json
 !/disc_probe.json
+# Local release-gate receipts (regenerate per run; never ship)
+/_gate/

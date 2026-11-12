@@ -42,6 +42,7 @@ psxrecomp_add_game_runtime(psx-runtime
     WINDOW_TITLE "Resident Evil 2 (USA Dual Shock Leon)"
     DEFAULT_GAME_CONFIG_PATH "game.toml"
     MAX_PLAYERS 1
+    APP_ICON "${CMAKE_CURRENT_SOURCE_DIR}/assets/psxrecomp.ico"
 
 
     GEN_MARKER "generated/SLUS_007.48_dispatch.c"
