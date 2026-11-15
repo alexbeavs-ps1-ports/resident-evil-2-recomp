@@ -28,6 +28,13 @@ Scaffolded with the New Project Layout. See
 **BIOS:** SCPH-1001 (USA) retail BIOS, 524288 bytes, SHA-256 `71af94d1e47a68c11e8fdb9f8368040601514a42a5a399cda48c7d3bff1e99d3`. Supply your own dump; releases do not use OpenBIOS.
 <!-- /release-standard:bios -->
 
+## Known issues
+
+- Resident Evil 2 ships as two kits, one per disc: Leon (this repository) and Claire.
+  For now they are two separate installations, and memory cards must be copied from
+  one to the other by hand. A future update will support both discs in one
+  installation that shares its memory cards.
+
 <!-- retcomm-readme-launcher -->
 ## RetComM Launcher
 
