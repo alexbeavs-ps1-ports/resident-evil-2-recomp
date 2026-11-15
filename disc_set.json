@@ -1,0 +1,18 @@
+{
+  "disc_count": 1,
+  "verdict": "single",
+  "differing_program_fields": [],
+  "warnings": [],
+  "discs": [
+    {
+      "index": 1,
+      "cue_name": "Resident Evil 2 - Dual Shock [Leon Disc] [U] [SLUS-00748].cue",
+      "cue_path": "disc/Resident Evil 2 - Dual Shock [Leon Disc] [U] [SLUS-00748].cue",
+      "serial": "SLUS-00748",
+      "boot_exe": "SLUS_007.48",
+      "entry_pc": "0x80078408",
+      "track_count": 2,
+      "required_disc_fp": "fe630b0ff03361ab91d9cdf99ba41be195b00145fd54a7c61c4858b987183610"
+    }
+  ]
+}
